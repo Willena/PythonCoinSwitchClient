@@ -1,4 +1,4 @@
-from coinswitch_client.CoinSwitchClient import CoinSwitchV1Client, Address
+from coinswitch_client.APIClient import CoinSwitchV1Client, Address
 
 if __name__ == '__main__':
     c = CoinSwitchV1Client()
