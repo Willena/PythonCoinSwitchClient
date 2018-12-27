@@ -37,6 +37,9 @@ class ApiResponse:
     def data(self):
         return self.source_data['data'] if self.source_data is not None else ""
 
+    def message(self):
+        return self.source_data['msg'] if self.source_data is not None else ""
+
     def __str__(self):
         return str(self.source_data)
 
@@ -44,9 +47,6 @@ class ApiResponse:
 class ApiResponseV1(ApiResponse):
     def __init__(self, text_response: str = None, json_response: json = None):
         ApiResponse.__init__(text_response=text_response, json_response=json_response)
-
-    def message(self):
-        return self.source_data['msg'] if self.source_data is not None else ""
 
 
 class ApiResponseV2(ApiResponse):
@@ -257,7 +257,8 @@ class CoinSwitchV2InstantClient(CoinSwitchClient):
             'depositCoin': from_coin,
             'destinationCoin': to_coin
         }
-        return ApiResponseV2(json_response=requests.post(self.api_url + "rate", data=json.dumps(data), headers=self.headers).json())
+        return ApiResponseV2(
+            json_response=requests.post(self.api_url + "rate", data=json.dumps(data), headers=self.headers).json())
 
     def order(self, from_coin: str, to_coin: str, to_address: Address, refund_adress: Address,
               quantity_from: float = None, quantity_to: float = None, ):

@@ -1,6 +1,5 @@
-from CoinSwitchClient import *
+from coinswitch_client.APIClient import CoinSwitchClient
 
-name = "python-coinswitch-client"
 
 def v2_instant(api_key, ip):
     return CoinSwitchClient.v2_instant(api_key=api_key, ip=ip)
