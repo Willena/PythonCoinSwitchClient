@@ -8,7 +8,7 @@ It is just a collection of utils to manipulate, interpret and simplify calls to 
 First install the package with pip
 
 ```
-pip install coinswitch-client
+pip install coinswitchclient 
 ```
 
 Then be sure to have your API key. If not it defaults to a sandbox api key
